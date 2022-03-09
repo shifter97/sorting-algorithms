@@ -1,5 +1,6 @@
 def bubble_sort(list):
-    """ Sort the list by using bubble sort algorithm, 
+    """ 
+        Sort the list by using bubble sort algorithm, 
         iterating throw list and repeatedly swapping 
         the adjacent elements if they are in wrong order
     """
@@ -17,7 +18,8 @@ def bubble_sort(list):
 
 
 def merge_sort(list):
-    """ Sort the list by using merge sort algorithm,
+    """ 
+        Sort the list by using merge sort algorithm,
         Divide the unsorted list into n sublists, 
         each containing one element (a list of one element is considered sorted).
         Repeatedly merges sublists to produce new sorted sublists
@@ -59,7 +61,8 @@ def merge_sort(list):
 
 
 def quick_sort(list):
-    """ Sort the list by using quicksort algorithm,
+    """ 
+        Sort the list by using quicksort algorithm,
         in the current implementation pivot is in the middle,
         comparing elements before pivot and after pivot and swapping places,
         used recursion for left and right side of list sorting.
