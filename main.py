@@ -2,25 +2,29 @@ import unittest
 
 
 # BUBBLE SORT
-def bubble_sort(mylist):
-    for a in range(len(mylist)):
+def bubble_sort(list):
+    for a in range(len(list)):
         swap = False
         i = 0
-        while i < len(mylist)-1:
-            if mylist[i] > mylist[i+1]:
-                mylist[i], mylist[i + 1] = mylist[i + 1], mylist[i]
+        while i < len(list)-1:
+            if list[i] > list[i+1]:
+                list[i], list[i + 1] = list[i + 1], list[i]
                 swap = True
             i += 1
         if swap is False:
             break
-    return mylist
+    return list
+
+mylist = [26, 10, 11, 9, 30, 1, 9]
+new2 = bubble_sort(mylist)
+
 
 # MERGE SORT
-def mergeSort(mylist):
-    if len(mylist) > 1:
-        mid = len(mylist) // 2
-        left = mylist[:mid]
-        right = mylist[mid:]
+def mergeSort(list):
+    if len(list) > 1:
+        mid = len(list) // 2
+        left = list[:mid]
+        right = list[mid:]
         mergeSort(left)
         mergeSort(right)
 
@@ -30,60 +34,58 @@ def mergeSort(mylist):
 
         while i < len(left) and j < len(right):
             if left[i] <= right[j]:
-                mylist[k] = left[i]
+                list[k] = left[i]
                 i += 1
             else:
-                mylist[k] = right[j]
+                list[k] = right[j]
                 j += 1
             k += 1
         while i < len(left):
-            mylist[k] = left[i]
+            list[k] = left[i]
             i += 1
             k += 1
 
         while j < len(right):
-            mylist[k] = right[j]
+            list[k] = right[j]
             j += 1
             k += 1
 
-    return mylist
+    return list
 
 mylist = [26, 10, 11, 9, 30, 1, 9]
 new = mergeSort(mylist)
-mergeSort(mylist)
 
 
 # QUICK SORT
-def partition(nums, low, high):
-    pivot = nums[(low + high) // 2]
-    i = low - 1
-    j = high + 1
+def partition(list, left, right):
+    pivot = list[(left + right) // 2]
+    i = left - 1
+    j = right + 1
     while True:
         i += 1
-        while nums[i] < pivot:
+        while list[i] < pivot:
             i += 1
         j -= 1
-        while nums[j] > pivot:
+        while list[j] > pivot:
             j -= 1
         if i >= j:
             return j
-        nums[i], nums[j] = nums[j], nums[i]
+        list[i], list[j] = list[j], list[i]
 
 
-def quick_sort(mylist):
-    def _quick_sort(items, low, high):
-        if low < high:
-            split_index = partition(items, low, high)
-            _quick_sort(items, low, split_index)
-            _quick_sort(items, split_index + 1, high)
+def quick_sort(list):
+    def _quick_sort(list, left, right):
+        if left < right:
+            split_index = partition(list, left, right)
+            _quick_sort(list, left, split_index)
+            _quick_sort(list, split_index + 1, right)
 
-    _quick_sort(mylist, 0, len(mylist) - 1)
-    return mylist
+    _quick_sort(list, 0, len(list) - 1)
+    return list
 
 
 mylist = [26, 10, 11, 9, 30, 1, 12]
 new1 = quick_sort(mylist)
-print(mylist)
 
 
 class unit_tests(unittest.TestCase):
