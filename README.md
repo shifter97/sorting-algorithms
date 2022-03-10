@@ -1,4 +1,4 @@
-# sorting-algorithms
+# Sorting-algorithms
 
 Sorting algorithms implemented in python.
 
